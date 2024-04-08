@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+header{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+}
+header h1{
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-shadow: 5px 5px 7px #008000
+}
+.header_img{
+    height: 70px;
+}
+.header_img img{
+    height: 100%;
+}
+.form-checks{
+    gap:20px;
+}
+.content{
+    display: flex;
+    justify-content: space-around;
+    gap:30px
+}
+.country-info{
+    width: 40%;
+    padding-block: 10px;
+    box-shadow: 1px 1px 3px #000;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 10px ;
+    align-items: center;
+    gap: 8px
+
+}
+
+.country-info__title{
+    box-shadow: 1px 1px 3px #000;
+    display: inline-block;
+    padding: 5%;
+    width: 80%;
+    position: relative;
+    top: -40px;
+    background: #fff;
+    margin-inline: auto;
+    border-radius: 200px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info{
+    width: 80%;
+    /* overflow: hidden; */
+}
+.flag{
+    height: 40px;
+    margin-left: 5px;
+    box-shadow: 1px 1px 3px #000;
+}
+.country-info h2{
+    font-size: 22px;
+}
+.country-info span{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}
+h3{
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    /* width: 100%; */
+}
+.timezone span{
+    width: 300px;
+}
+.neighborhood_info{
+    width: 55%;
+}
+.count-neighborhood {
+    display: flex;
+    gap:15px;
+}
+.count-neighborhood span{
+    font-family: "Indie Flower", cursive;
+}
+.neighborhoo-list ul {
+    padding-left: 0;
+    list-style: none;
+    list-style-position: inside;
+}
+.neighborhoo-list ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.broser *{
+    display: inline;
+}
+.broser img{
+    height: 20px;
+    aspect-ratio: 3/2;
+    margin-right: 5px;
+    filter: drop-shadow( 1px 1px 2px #000);
+}
+.broser-title{
+    font-weight: 500;
+}
