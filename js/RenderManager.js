@@ -8,24 +8,30 @@ export class RenderManager {
     #moreInfo = document.querySelector(".moreInfo");
     #listBrs = document.querySelector(".neighborhoo-list ul");
     #brsLen = document.querySelector("#counter_neighborhood");
-    
+    #neighborhood = document.querySelector(".neighborhood_info");
     diaplayAction(){
         this.#action.style.display = 'flex';
     }
     noneDisplayAction(){
         this.#action.style.display = 'none';
     }
-    noneDisplayLinkShowInfo(more){
-        more.style.display = "none";
+    noneDisplayLinkShowInfo(link){
+        link.style.display = "none";
     }
-    displayLinkShowInfo(more){
-        more.style.display = "";
+    displayLinkShowInfo(link){
+        link.style.display = "";
     }
     neighborhoodBtnActiv(btn){
         btn.disabled = false;
     }
     neighborhoodBtnNotActiv(btn){
         btn.disabled = true;
+    }
+    displayNeighborhood(){
+        this.#neighborhood.style.display = "";
+    }
+    noneDisplayNeighborhood(){
+        this.#neighborhood.style.display = "none";        
     }
     displayMainCountryHtml(country){
         this.#nameCounty.textContent = country.name;
@@ -55,12 +61,14 @@ export class RenderManager {
         <h3 class="timezones">Timezones: <span>${country.timezones}</span></h3>
         `
     }
-    displayBroserCount(event,count){
+    displayBroserCount(count){
         this.#brsLen.textContent = count;
     }
-    displayListBroser(event,brs){
-        this.#listBrs.insertAdjacentHTML("beforeend", this.htmlListBroser(brs));
-       
+    displayListBroser(brs){
+        this.#listBrs.insertAdjacentHTML("beforeend", this.htmlListBroser(brs));       
+    }
+    displayListBroserDetails(brs){
+        this.#listBrs.insertAdjacentHTML("beforeend", this.htmlListBroserDetails(brs));       
     }
     removeListBroser(){
         this.#listBrs.textContent = "";
@@ -71,5 +79,18 @@ export class RenderManager {
         <img src="${country.flag}">
         <span class="broser-title">${country.name}</h4>
       </li>`
+    }    
+    htmlListBroserDetails(country){
+        return`
+        <li class="broser">
+              <img src="${country.flag}">
+              <span class="broser-title">${country.name} </span>
+              <span class="broser-title spanInfo">${country.capital} </span>
+              <span class="broser-title">Population: <span class="spanInfo">${country.population}</span></span>
+              <span class="broser-title">Area: <span class="spanInfo">${country.area}</span></span>
+              <span class="broser-title">Currency: <span class="spanInfo">${country.currency}</span></span>
+              <span class="broser-title">Region: <span class="spanInfo">${country.region}</span></span>
+            </li>
+        `
     }    
  }
