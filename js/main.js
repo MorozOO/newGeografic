@@ -17,21 +17,21 @@ document.addEventListener("DOMContentLoaded", async () => {
     form.addEventListener('input', (e) => { formManager.activBtn(e); });
     form.addEventListener('submit', async (e) => {
         renderManager.diaplayAction();
+        renderManager.neighborhoodBtnActiv(neighborhood_btn);
         localStorageManager.deleteMainCountry();
         localStorageManager.deleteBroserCountry();
         localStorageManager.deleteBrosersCountry();
         // renderManager.removeListBroser();
         formManager.getFormFields(e);
         await counryManager.getCountrydata(formManager.formValues);
-        renderManager.displayMainCountryHtml(localStorageManager.getMainCounry());
-
-        
+        renderManager.displayMainCountryHtml(localStorageManager.getMainCounry());        
     });
     more.addEventListener('click', (e) => { 
         renderManager.displayMoreInfo(e,localStorageManager.getMainCounry()); 
-        more.style.display = "none";
+        renderManager.linkShowInfo(more);
     });
         neighborhood_btn.addEventListener('click', async(e) => { 
+            renderManager.neighborhoodBtnNotActiv(neighborhood_btn);
             if(localStorageManager.getMainCounry().hasOwnProperty("borders")){
                 renderManager.displayBroserCount(e,localStorageManager.getMainCounry().borders.length);
                 let brs = new Array();

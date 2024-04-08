@@ -15,8 +15,15 @@ export class RenderManager {
     noneDisplayAction(){
         this.#action.style.display = 'none';
     }
-
-    
+    linkShowInfo(more){
+        more.style.display = "none";
+    }
+    neighborhoodBtnActiv(btn){
+        btn.disabled = false;
+    }
+    neighborhoodBtnNotActiv(btn){
+        btn.disabled = true;
+    }
     displayMainCountryHtml(country){
         this.#nameCounty.textContent = country.name;
         this.#flag.src = country.flag;
