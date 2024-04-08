@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         localStorageManager.deleteMainCountry();
         localStorageManager.deleteBroserCountry();
         localStorageManager.deleteBrosersCountry();
-        // renderManager.removeListBroser();
+        renderManager.removeListBroser();
         formManager.getFormFields(e);
         await counryManager.getCountrydata(formManager.formValues);
         renderManager.displayMainCountryHtml(localStorageManager.getMainCounry());        
