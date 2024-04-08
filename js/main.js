@@ -13,13 +13,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const form = document.querySelector('#searchForm');
     const more = document.querySelector('.more');
     const neighborhood_btn = document.querySelector('#neighborhood_btn');
+    renderManager.noneDisplayAction();
     form.addEventListener('input', (e) => { formManager.activBtn(e); });
     form.addEventListener('submit', async (e) => {
+        renderManager.diaplayAction();
         localStorageManager.deleteMainCountry();
         localStorageManager.deleteBroserCountry();
-        localStorageManager.deleteBrosersCountry()
-        renderManager.removeMoreInfo();
-        renderManager.removeListBroser();
+        localStorageManager.deleteBrosersCountry();
+        // renderManager.removeListBroser();
         formManager.getFormFields(e);
         await counryManager.getCountrydata(formManager.formValues);
         renderManager.displayMainCountryHtml(localStorageManager.getMainCounry());
@@ -28,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     more.addEventListener('click', (e) => { 
         renderManager.displayMoreInfo(e,localStorageManager.getMainCounry()); 
-        more.computedStyleMap.display = "none";
+        more.style.display = "none";
     });
         neighborhood_btn.addEventListener('click', async(e) => { 
             if(localStorageManager.getMainCounry().hasOwnProperty("borders")){

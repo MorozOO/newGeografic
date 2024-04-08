@@ -1,4 +1,5 @@
 export class RenderManager {
+    #action = document.querySelector(".content");
     #nameCounty = document.querySelector(".name");
     #flag = document.querySelector(".flag");
     #capital = document.querySelector(".capital span");
@@ -8,8 +9,14 @@ export class RenderManager {
     #listBrs = document.querySelector(".neighborhoo-list ul");
     #brsLen = document.querySelector("#counter_neighborhood");
     
-    
+    diaplayAction(){
+        this.#action.style.display = 'flex';
+    }
+    noneDisplayAction(){
+        this.#action.style.display = 'none';
+    }
 
+    
     displayMainCountryHtml(country){
         this.#nameCounty.textContent = country.name;
         this.#flag.src = country.flag;
@@ -49,6 +56,5 @@ export class RenderManager {
         <img src="${country.flag}">
         <span class="broser-title">${country.name}</h4>
       </li>`
-    }
-    
+    }    
  }
