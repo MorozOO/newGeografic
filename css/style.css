@@ -83,10 +83,10 @@ h3{
     font-weight: 400;
     font-style: normal;
     font-size: 20px;
-    /* width: 100%; */
 }
-.timezone span{
-    width: 300px;
+.timezones span{
+    word-break: break-all;
+
 }
 .neighborhood_info{
     width: 55%;

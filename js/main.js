@@ -24,7 +24,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         await counryManager.getCountrydata(formManager.formValues);
         renderManager.displayMainCountryHtml(localStorageManager.getMainCounry());
 
-        more.addEventListener('click', (e) => { renderManager.displayMoreInfo(e,localStorageManager.getMainCounry()); });
+        
+    });
+    more.addEventListener('click', (e) => { 
+        renderManager.displayMoreInfo(e,localStorageManager.getMainCounry()); 
+        more.computedStyleMap.display = "none";
+    });
         neighborhood_btn.addEventListener('click', async(e) => { 
             if(localStorageManager.getMainCounry().hasOwnProperty("borders")){
                 renderManager.displayBroserCount(e,localStorageManager.getMainCounry().borders.length);
@@ -41,6 +46,5 @@ document.addEventListener("DOMContentLoaded", async () => {
                 renderManager.displayBroserCount(e,0);
             }
         });
-    });
 });
 
