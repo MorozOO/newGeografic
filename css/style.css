@@ -95,8 +95,10 @@ h3{
     display: flex;
     gap:15px;
 }
-.count-neighborhood span{
-    font-family: "Indie Flower", cursive;
+.count-neighborhood h3{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 25px;
 }
 .neighborhoo-list ul {
     padding-left: 0;

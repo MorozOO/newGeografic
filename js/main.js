@@ -13,11 +13,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const form = document.querySelector('#searchForm');
     const more = document.querySelector('.more');
     const neighborhood_btn = document.querySelector('#neighborhood_btn');
+    const neighborhood_info = document.querySelector('#detalied_neighborhood');
     renderManager.noneDisplayAction();
     form.addEventListener('input', (e) => { formManager.activBtn(e); });
     form.addEventListener('submit', async (e) => {
         renderManager.diaplayAction();
         renderManager.neighborhoodBtnActiv(neighborhood_btn);
+        renderManager.displayLinkShowInfo(more);
+        renderManager.nonDisplayMoreInfo();
         localStorageManager.deleteMainCountry();
         localStorageManager.deleteBroserCountry();
         localStorageManager.deleteBrosersCountry();
@@ -28,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     more.addEventListener('click', (e) => { 
         renderManager.displayMoreInfo(e,localStorageManager.getMainCounry()); 
-        renderManager.linkShowInfo(more);
+        renderManager.noneDisplayLinkShowInfo(more);
     });
         neighborhood_btn.addEventListener('click', async(e) => { 
             renderManager.neighborhoodBtnNotActiv(neighborhood_btn);

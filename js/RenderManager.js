@@ -15,8 +15,11 @@ export class RenderManager {
     noneDisplayAction(){
         this.#action.style.display = 'none';
     }
-    linkShowInfo(more){
+    noneDisplayLinkShowInfo(more){
         more.style.display = "none";
+    }
+    displayLinkShowInfo(more){
+        more.style.display = "";
     }
     neighborhoodBtnActiv(btn){
         btn.disabled = false;
@@ -35,7 +38,12 @@ export class RenderManager {
     displayMoreInfo(event,country){
         event.preventDefault();
         this.removeMoreInfo();
+        this.#moreInfo.style.display = "";
         this.#moreInfo.insertAdjacentHTML("beforeend", this.htmlMoreInfo(country));
+    }
+    nonDisplayMoreInfo(){
+        this.removeMoreInfo();
+        this.#moreInfo.style.display = "none";
     }
     removeMoreInfo(){
         this.#moreInfo.textContent = "";
