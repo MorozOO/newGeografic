@@ -51,4 +51,19 @@ export class LocalStorageManager {
             throw new Error("key Broser  is not found in LocalStorage")
         }
     }
+
+    logSearchResult(type, name, status) {
+        const currentDate = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        const logData = {
+          [type]: {
+            [type === 'countries' ? 'country' : 'capital']: name,
+            created_at: currentDate,
+            browser: navigator.userAgent,
+            status: status
+          }
+        };
+        let searchData = JSON.parse(localStorage.getItem('searchData')) || { countries: [], capitals: [] };
+        searchData[type].push(logData[type]);
+        localStorage.setItem('searchData', JSON.stringify(searchData));
+      }
 }

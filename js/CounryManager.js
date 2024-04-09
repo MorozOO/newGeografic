@@ -56,23 +56,36 @@ export class CounryManager {
 
     async getCountrydata(obj) {
         const requestManager = new RequestManager();
-            if (obj.choice == "country") {
-                await this.getDataByCountryName(requestManager, obj.name)
-                    .then(
-                        requst => this.localStorageAddMainCountry(requst)
-                    );
-            } else {
-                await this.getDataByCapital(requestManager, obj.name)
-                    .then(
-                        requst => this.localStorageAddMainCountry(requst)
-                    );
-            }
+        if (obj.choice == "country") {
+            await this.getDataByCountryName(requestManager, obj.name)
+                .then(
+                    requst => {
+                        this.localStorageAddMainCountry(requst);
+                        localStorageManager.logSearchResult("countries", obj.name, "sucsees")
+                    }
+                )
+                .catch(err =>
+                    localStorageManager.logSearchResult("countries", obj.name, "failure")
+                );
+
+        } else {
+            await this.getDataByCapital(requestManager, obj.name)
+                .then(
+                    requst => {
+                        this.localStorageAddMainCountry(requst);
+                        localStorageManager.logSearchResult("capitals", obj.name, "sucsees");
+                    }
+                )
+                .catch(err =>
+                    localStorageManager.logSearchResult("capitals", obj.name, "failure")
+                );
         }
-        async getCountrydataCode(code) {
-            const requestManager = new RequestManager();
-            await this.getDataByCode(requestManager, code)
+    }
+    async getCountrydataCode(code) {
+        const requestManager = new RequestManager();
+        await this.getDataByCode(requestManager, code)
             .then(
                 requst => this.localStorageAddBroserCountry(requst)
             );
-        }
+    }
 }
